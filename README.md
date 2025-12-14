@@ -192,3 +192,79 @@ docker exec container pstree -p
 ```
 
 **Key Takeaway**: The kernel treats the first process in ANY PID namespace (host or container) as "init" for that namespace. This means your container's main process inherits responsibilities that most applications aren't designed to handle, hence the need for proper init processes in containers.
+---
+Here are 50 related Linux/container concepts to explore:
+
+## **Process & PID Related**
+1. **Process descriptors** in Linux kernel (task_struct)
+2. **procfs** (/proc filesystem) internals
+3. **Process states** (Running, Sleeping, Zombie, Stopped, etc.)
+4. **Process groups** and session IDs
+5. **Process capabilities** (CAP_SYS_ADMIN, etc.)
+6. **Process credentials** (UID, GID, supplementary groups)
+7. **Process accounting** and resource limits
+8. **OOM killer** and memory management
+9. **Process migration** between CPUs
+10. **CPU affinity** and cpusets
+
+## **Namespace Specific**
+11. **UTS namespace** (hostname isolation)
+12. **Mount namespace** (filesystem isolation)
+13. **Network namespace** (network stack isolation)
+14. **IPC namespace** (System V IPC, POSIX message queues)
+15. **User namespace** (UID/GID mapping)
+16. **Cgroup namespace** (cgroup root isolation)
+17. **Time namespace** (clock offset isolation)
+18. **Namespace APIs** (unshare, setns, clone flags)
+19. **Namespace persistence** (bind mounts to /proc/*/ns/)
+20. **Nested namespaces** and their implications
+
+## **Container Specific**
+21. **Container lifecycle** states
+22. **OCI runtime spec** (runc, crun)
+23. **Container checkpoint/restore** (CRIU)
+24. **Overlay filesystems** (OverlayFS, AUFS)
+25. **Union mounts** and copy-on-write
+26. **Rootless containers** (podman, rootless Docker)
+27. **Container escapes** and security implications
+28. **seccomp profiles** for syscall filtering
+29. **AppArmor/SELinux** for container isolation
+30. **Container networking models** (bridge, host, none)
+
+## **Init & Process Management**
+31. **init systems** comparison (systemd, OpenRC, runit)
+32. **Process supervisors** (supervisord, s6, runit)
+33. **Orphan process adoption** algorithm
+34. **Process signals** and their default actions
+35. **Signal masks** and blocked signals
+36. **Real-time signals** vs regular signals
+37. **Process termination** sequence (exit, wait, waitpid)
+38. **Process replacement** (exec family)
+39. **Daemonization** and double-fork
+40. **Process tree** visualization tools (pstree, htop)
+
+## **Kernel Internals**
+41. **PID allocation** algorithms
+42. **PID rollover** and recycling
+43. **Process table** implementation
+44. **Namespace-aware system calls**
+45. **cgroups v1 vs v2** architecture
+46. **Virtual filesystems** (sysfs, cgroupfs, procfs)
+47. **Linux Security Modules** (LSM) framework
+48. **Kernel namespaces** data structures
+49. **Container runtime security** (gVisor, Kata Containers)
+50. **eBPF for container monitoring** (tracing, profiling)
+
+## **Bonus - Related Tools & Debugging**
+- `nsenter` command
+- `lsns` namespace listing
+- `strace` for system call tracing
+- `/proc/pid/status` fields
+- `pstree -p` process tree
+- `docker inspect` namespace info
+- `podman` vs Docker differences
+- `crictl` for CRI containers
+- `systemd-nspawn` containers
+- `unshare` command examples
+
+Each of these topics connects to the fundamental concept of process isolation and provides deeper insight into how containers work under the hood. Would you like me to elaborate on any specific topic from this list?
